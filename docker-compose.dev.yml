@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  speedtest:
+    build:
+      context: .
+      args:
+        TARGETPLATFORM: linux/amd64
+    environment:
+      - INTERVAL=60
+      - INFLUXDB_HOST=host
+      - INFLUXDB_NAME=db
