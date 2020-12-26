@@ -1,7 +1,7 @@
-$version = (Get-Date -format "yyyy.MM.dd.HHmm")
+$Version = (Get-Date -AsUTC -Format "yyyy.MM.dd.HHmm")
 
-Write-Host "Tag will be $version"
+Write-Host "Tag will be $Version"
 Write-Host
 
-git tag $version
+git tag $Version
 git push --tags
