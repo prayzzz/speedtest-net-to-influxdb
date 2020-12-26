@@ -7,6 +7,8 @@ Uses the offical http://speedtest.net cli to perform speedtests periodically and
 
 Heavily inspired by [Caroga/speedtest-to-influxdb](https://github.com/Caroga/speedtest-to-influxdb)
 
+Download and upload are written as `bits` to influxdb.
+
 ## environment variables
 - INTERVAL (in seconds)
 - HOST (current hostname used as influxdb tag)

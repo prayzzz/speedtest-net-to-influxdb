@@ -13,8 +13,8 @@ while true; do
     EXTERNAL_IP=$(echo $JSON | jq '.interface.externalIp' -r)
 
     PING=$(echo $JSON | jq '.ping.latency' -r)
-    DOWNLOAD=$(echo $JSON | jq '.download.bandwidth' -r)
-    UPLOAD=$(echo $JSON | jq '.upload.bandwidth' -r)
+    DOWNLOAD=$(($(echo $JSON | jq '.download.bandwidth' -r) * 8))
+    UPLOAD=$(($(echo $JSON | jq '.upload.bandwidth' -r) * 8))
 
     SERVER_ID=$(echo $JSON | jq '.server.id' -r)
     SERVER_NAME=$(echo $JSON | jq '.server.name' -r | sed 's/ /\\ /g')
