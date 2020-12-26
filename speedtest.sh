@@ -8,7 +8,7 @@ while true; do
 
     TIMESTAMP=$(echo $JSON | jq '.timestamp' -r)
 
-    ISP_NAME=$(echo $JSON | jq '.isp' -r)
+    ISP_NAME=$(echo $JSON | jq '.isp' -r | sed 's/ /\\ /g')
     INTERNAL_IP=$(echo $JSON | jq '.interface.internalIp' -r)
     EXTERNAL_IP=$(echo $JSON | jq '.interface.externalIp' -r)
 
@@ -17,9 +17,9 @@ while true; do
     UPLOAD=$(echo $JSON | jq '.upload.bandwidth' -r)
 
     SERVER_ID=$(echo $JSON | jq '.server.id' -r)
-    SERVER_NAME=$(echo $JSON | jq '.server.name' -r)
-    SERVER_LOCATION=$(echo $JSON | jq '.server.location' -r)
-    SERVER_COUNTRY=$(echo $JSON | jq '.server.country' -r)
+    SERVER_NAME=$(echo $JSON | jq '.server.name' -r | sed 's/ /\\ /g')
+    SERVER_LOCATION=$(echo $JSON | jq '.server.location' -r | sed 's/ /\\ /g')
+    SERVER_COUNTRY=$(echo $JSON | jq '.server.country' -r | sed 's/ /\\ /g')
     SERVER_IP=$(echo $JSON | jq '.server.ip' -r)
 
     RESULT_LINK=$(echo $JSON | jq '.result.url' -r)
@@ -31,12 +31,13 @@ while true; do
     echo "           Ping: $PING"
     echo "       Download: $DOWNLOAD"
     echo "         Upload: $UPLOAD"
+    echo "      Server ID: $SERVER_ID"
     echo "    Server Name: $SERVER_NAME"
     echo "Server Location: $SERVER_LOCATION"
     echo " Server Country: $SERVER_COUNTRY"
     echo "        Results: $RESULT_LINK"
 
-    QUERY='speedtest,host='${HOST}',isp='${ISP_NAME}',internal_ip='${INTERNAL_IP}',external_ip='${EXTERNAL_IP}',server_id='${server_id}',server_name='${SERVER_NAME}',server_location='${SERVER_LOCATION}',server_country='${SERVER_COUNTRY}',server_ip='${SERVER_IP}' download='${DOWNLOAD}',upload='${UPLOAD}',ping='${PING}
+    QUERY='speedtest,host='${HOST}',isp='${ISP_NAME}',internal_ip='${INTERNAL_IP}',external_ip='${EXTERNAL_IP}',server_id='${SERVER_ID}',server_name='${SERVER_NAME}',server_location='${SERVER_LOCATION}',server_country='${SERVER_COUNTRY}',server_ip='${SERVER_IP}' download='${DOWNLOAD}',upload='${UPLOAD}',ping='${PING}
     echo "${QUERY}" >/tmp/postdata
 
     echo ''
