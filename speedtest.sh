@@ -37,7 +37,7 @@ while true; do
     echo " Server Country: $SERVER_COUNTRY"
     echo "        Results: $RESULT_LINK"
 
-    QUERY='speedtest,host='${HOST}',isp='${ISP_NAME}',internal_ip='${INTERNAL_IP}',external_ip='${EXTERNAL_IP}',server_id='${SERVER_ID}',server_name='${SERVER_NAME}',server_location='${SERVER_LOCATION}',server_country='${SERVER_COUNTRY}',server_ip='${SERVER_IP}' download='${DOWNLOAD}',upload='${UPLOAD}',ping='${PING}
+    QUERY='speedtest,host='${HOST}' isp='${ISP_NAME}',internal_ip='${INTERNAL_IP}',external_ip='${EXTERNAL_IP}',server_id='${SERVER_ID}',server_name='${SERVER_NAME}',server_location='${SERVER_LOCATION}',server_country='${SERVER_COUNTRY}',server_ip='${SERVER_IP}',download='${DOWNLOAD}',upload='${UPLOAD}',ping='${PING}
     echo "${QUERY}" >/tmp/postdata
 
     echo ''
