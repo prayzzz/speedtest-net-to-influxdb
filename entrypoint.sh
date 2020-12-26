@@ -7,11 +7,11 @@ else
     echo "Interval is ${INTERVAL}"
 fi
 
-if [ -z ${INFLUXDB_HOST+x} ]; then
-    echo "INFLUXDB_HOST is unset"
+if [ -z ${INFLUXDB_URL+x} ]; then
+    echo "INFLUXDB_URL is unset"
     exit 1
 else
-    echo "InfluxDB Host is ${INFLUXDB_HOST}"
+    echo "InfluxDB URL is ${INFLUXDB_URL}"
 fi
 
 if [ -z ${INFLUXDB_NAME+x} ]; then

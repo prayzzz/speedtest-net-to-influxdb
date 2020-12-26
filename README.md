@@ -9,7 +9,8 @@ Heavily inspired by [Caroga/speedtest-to-influxdb](https://github.com/Caroga/spe
 
 ## environment variables
 - INTERVAL (in seconds)
-- INFLUXDB_HOST
+- HOST (current hostname used as influxdb tag)
+- INFLUXDB_URL
 - INFLUXDB_NAME
 
 ## docker-compose
@@ -22,6 +23,7 @@ services:
     image: prayzzz/speedtest-net-to-influxdb:latest
     environment:
       - INTERVAL=60
-      - INFLUXDB_HOST=http://myinfluxdb.local
-      - INFLUXDB_NAME=my-database
+      - HOST=myhost
+      - INFLUXDB_URL=http://myinfluxdb.local
+      - INFLUXDB_NAME=db
 ```

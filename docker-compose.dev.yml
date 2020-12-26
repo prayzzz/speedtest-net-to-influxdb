@@ -8,5 +8,6 @@ services:
         TARGETPLATFORM: linux/amd64
     environment:
       - INTERVAL=60
-      - INFLUXDB_HOST=host
+      - HOST=myhost
+      - INFLUXDB_URL=http://myinfluxdb.local
       - INFLUXDB_NAME=db

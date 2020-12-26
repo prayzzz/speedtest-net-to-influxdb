@@ -40,7 +40,7 @@ while true; do
     echo "${QUERY}" >/tmp/postdata
 
     echo ''
-    curl -sS -XPOST "${INFLUXDB_HOST}/write?db=${INFLUXDB_NAME}" --data-binary @/tmp/postdata
+    curl -sS -XPOST "${INFLUXDB_URL}/write?db=${INFLUXDB_NAME}" --data-binary @/tmp/postdata
     echo ''
 
     sleep $INTERVAL
