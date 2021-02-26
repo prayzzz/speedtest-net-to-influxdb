@@ -39,8 +39,28 @@ while true; do
     echo " Server Country: $SERVER_COUNTRY"
     echo "        Results: $RESULT_LINK"
 
-    QUERY='speedtest,host="'${HOST}'" isp="'${ISP_NAME}'",internal_ip="'${INTERNAL_IP}'",external_ip="'${EXTERNAL_IP}'",server_id='${SERVER_ID}',server_name="'${SERVER_NAME}'",server_location="'${SERVER_LOCATION}'",server_country="'${SERVER_COUNTRY}'",server_ip="'${SERVER_IP}'",download='${DOWNLOAD}',upload='${UPLOAD}',ping='${PING}',packetloss='${PACKETLOSS}
-    echo "${QUERY}" >/tmp/postdata
+    QUERY='speedtest'
+    QUERY=$QUERY',host="'${HOST}'"'
+    QUERY=$QUERY' isp="'${ISP_NAME}'"'
+    QUERY=$QUERY',internal_ip="'${INTERNAL_IP}'"'
+    QUERY=$QUERY',external_ip="'${EXTERNAL_IP}'"'
+    QUERY=$QUERY',server_id='${SERVER_ID}
+    QUERY=$QUERY',server_name="'${SERVER_NAME}'"'
+    QUERY=$QUERY',server_location="'${SERVER_LOCATION}'"'
+    QUERY=$QUERY',server_country="'${SERVER_COUNTRY}'"'
+    QUERY=$QUERY',server_ip="'${SERVER_IP}'"'
+    QUERY=$QUERY',download='${DOWNLOAD}
+    QUERY=$QUERY',upload='${UPLOAD}
+    QUERY=$QUERY',ping='${PING}
+
+    if [ $PACKETLOSS != 'null' ]; then
+        QUERY=$QUERY',packetloss='$PACKETLOSS
+    fi
+
+    echo ''
+    echo $QUERY
+
+    echo "$QUERY" >/tmp/postdata
 
     echo ''
     curl -sS -XPOST "${INFLUXDB_URL}/write?db=${INFLUXDB_NAME}" --data-binary @/tmp/postdata
