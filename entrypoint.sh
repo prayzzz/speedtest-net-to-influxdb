@@ -14,11 +14,25 @@ else
     echo "InfluxDB URL is ${INFLUXDB_URL}"
 fi
 
-if [ -z ${INFLUXDB_NAME+x} ]; then
-    echo "INFLUXDB_NAME is unset"
+if [ -z ${INFLUXDB_ORG+x} ]; then
+    echo "INFLUXDB_ORG is unset"
     exit 1
 else
-    echo "InfluxDB Name is ${INFLUXDB_NAME}"
+    echo "InfluxDB Organisation is ${INFLUXDB_ORG}"
+fi
+
+if [ -z ${INFLUXDB_BUCKET+x} ]; then
+    echo "INFLUXDB_BUCKET is unset"
+    exit 1
+else
+    echo "InfluxDB Bucket is ${INFLUXDB_BUCKET}"
+fi
+
+if [ -z ${INFLUXDB_TOKEN+x} ]; then
+    echo "INFLUXDB_TOKEN is unset"
+    exit 1
+else
+    echo "InfluxDB Token is ${INFLUXDB_TOKEN}"
 fi
 
 echo ""

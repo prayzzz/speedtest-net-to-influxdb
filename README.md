@@ -9,11 +9,15 @@ Heavily inspired by [Caroga/speedtest-to-influxdb](https://github.com/Caroga/spe
 
 Download and upload are written as `bits` to influxdb.
 
+`prayzzz/speedtest-net-to-influxdb:2021.02.26.1931` is the last version to support InfluxDB 1.8
+
 ## environment variables
 - INTERVAL (in seconds)
 - HOST (current hostname used as influxdb tag)
 - INFLUXDB_URL
-- INFLUXDB_NAME
+- INFLUXDB_ORG
+- INFLUXDB_BUCKET
+- INFLUXDB_TOKEN
 
 ## docker-compose
 
@@ -27,5 +31,7 @@ services:
       - INTERVAL=60
       - HOST=myhost
       - INFLUXDB_URL=http://myinfluxdb.local
-      - INFLUXDB_NAME=db
+      - INFLUXDB_ORG=...
+      - INFLUXDB_BUCKET=...
+      - INFLUXDB_TOKEN=...
 ```

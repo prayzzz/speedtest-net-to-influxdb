@@ -10,4 +10,6 @@ services:
       - INTERVAL=60
       - HOST=myhost
       - INFLUXDB_URL=http://myinfluxdb.local
-      - INFLUXDB_NAME=db
+      - INFLUXDB_ORG=myorg
+      - INFLUXDB_BUCKET=mybucket
+      - INFLUXDB_TOKEN=mytoken

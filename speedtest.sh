@@ -63,7 +63,7 @@ while true; do
     echo "$QUERY" >/tmp/postdata
 
     echo ''
-    curl -sS -XPOST "${INFLUXDB_URL}/write?db=${INFLUXDB_NAME}" --data-binary @/tmp/postdata
+    curl -sS -XPOST "${INFLUXDB_URL}/api/v2/write?org=${INFLUXDB_ORG}&bucket=${INFLUXDB_BUCKET}&precision=s" --header "Authorization: Token ${INFLUXDB_TOKEN}" --data-binary @/tmp/postdata
     echo ''
 
     sleep $INTERVAL
