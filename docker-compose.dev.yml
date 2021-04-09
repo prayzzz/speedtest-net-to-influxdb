@@ -8,6 +8,7 @@ services:
         TARGETPLATFORM: linux/amd64
     environment:
       - INTERVAL=60
+      - SPEEDTEST_SERVER_ID=30907
       - HOST=myhost
       - INFLUXDB_URL=http://myinfluxdb.local
       - INFLUXDB_ORG=myorg

@@ -7,6 +7,12 @@ else
     echo "Interval is ${INTERVAL}"
 fi
 
+if [ -z ${SPEEDTEST_SERVER_ID+x} ]; then
+    echo "SPEEDTEST_SERVER_ID is unset"
+else
+    echo "ServerId is ${SPEEDTEST_SERVER_ID}"
+fi
+
 if [ -z ${INFLUXDB_URL+x} ]; then
     echo "INFLUXDB_URL is unset"
     exit 1

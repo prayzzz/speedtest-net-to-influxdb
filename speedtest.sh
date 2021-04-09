@@ -2,9 +2,16 @@
 
 while true; do
 
-    echo "Starting speedtest"
+    CMD="./speedtest --accept-license --accept-gdpr --format json"
+    if [ ! -z ${SPEEDTEST_SERVER_ID+x} ]; then
+        CMD=$CMD" --server-id="$SPEEDTEST_SERVER_ID
+    fi
 
-    JSON=$(./speedtest --accept-license --accept-gdpr -f json)
+    echo "Starting speedtest with command"
+    echo "$CMD"
+    echo ""
+
+    JSON=$($CMD)
 
     TIMESTAMP=$(echo $JSON | jq '.timestamp' -r)
 

@@ -13,6 +13,7 @@ Download and upload are written as `bits` to influxdb.
 
 ## environment variables
 - INTERVAL (in seconds)
+- SPEEDTEST_SERVER_ID (optional, pin to specified speedtest.net server)
 - HOST (current hostname used as influxdb tag)
 - INFLUXDB_URL
 - INFLUXDB_ORG
